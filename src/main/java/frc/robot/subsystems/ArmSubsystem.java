@@ -43,8 +43,8 @@ public class ArmSubsystem extends SubsystemBase {
     m_motor.setSoftLimit(SoftLimitDirection.kReverse, (float)Constants.Arm.kSoftLimitReverse);
 
     m_encoder = m_motor.getEncoder(SparkMaxRelativeEncoder.Type.kHallSensor, 42);
-    m_encoder.setPositionConversionFactor(Constants.Arm.kArmGearRatio);
-    m_encoder.setVelocityConversionFactor(Constants.Arm.kArmGearRatio);
+    m_encoder.setPositionConversionFactor(Constants.Arm.kPositionFactor);
+    m_encoder.setVelocityConversionFactor(Constants.Arm.kVelocityFactor);
 
     m_controller = m_motor.getPIDController();
     PIDGains.setSparkMaxGains(m_controller, Constants.Arm.kArmPositionGains);
